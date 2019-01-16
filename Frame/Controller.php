@@ -6,6 +6,8 @@
  * Date: 2019/1/16
  * Time: 9:44
  */
+namespace Frame;
+use Smarty;
 class Controller {
 
     // 定义一个属性,用于保存Smarty对象
@@ -110,6 +112,15 @@ class Controller {
 wrongInfo;
             exit;
         }
+    }
+
+    /**
+     * 对用户递交数据进行安全过滤
+     * @param $params
+     * @return string
+     */
+    protected function escapeData($params){
+        return addslashes(strip_tags(trim($params)));
     }
 
 

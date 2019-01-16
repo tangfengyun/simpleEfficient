@@ -6,6 +6,7 @@
  * Date: 2019/1/16
  * Time: 11:14
  */
+namespace Frame\Dao;
 interface  I_DAO {
 
     public static function getInstance($config);

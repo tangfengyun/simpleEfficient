@@ -6,6 +6,7 @@
  * Date: 2019/1/15
  * Time: 17:24
  */
+namespace Frame;
 class Frame 
 {
     /**
@@ -32,7 +33,7 @@ class Frame
     private static function initConst()
     {
 
-        define('ROOT_DIR',str_replace('\\','/',getcwd().'/')); //根目录
+        define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
         define('APP_DIR',ROOT_DIR.'App/'); //应用程序目录
         define('CONFIG_DIR',ROOT_DIR.'Config/');//置文件目录
         define('FRAME_DIR',ROOT_DIR.'Frame/'); //框架目录
@@ -54,6 +55,7 @@ class Frame
     {
         // 将配置文件存储到超全局变量中以便整个项目都可以使用
         $GLOBALS['config'] = include CONFIG_DIR.'config.php';
+
     }
 
     /**
@@ -78,7 +80,7 @@ class Frame
     private static function initPlatformConst()
     {
         //控制器
-        define('CURRENT_CONTROLLER_DIR',APP_DIR.'Http/');
+        define('CURRENT_CONTROLLER_DIR',APP_DIR.'Http/Controllers/');
         //模型
         define('CURRENT_MODELS_DIR',APP_DIR.'Models/');
         //视图
@@ -106,7 +108,7 @@ class Frame
             'MYSQL'         =>  DAO_DIR . 'MYSQLDB.php',
             'PDODB'         =>  DAO_DIR . 'PDODB.php',
             'I_DAO'         =>  DAO_DIR . 'I_DAO.php',
-            'Smarty'        =>  SMARTY_DIR . 'Smarty.php',
+            'Smarty'        =>  SMARTY_DIR . 'Smarty.class.php',
             'Captcha'       =>  VENDOR_DIR . 'Captcha.php',
         );
         // 判断是否为核心类
@@ -119,7 +121,7 @@ class Frame
         }
         // 判断是否为模型类,截取后5个字符进行匹配
         elseif (substr($class_name,-5) == 'Model'){
-            include CURRENT_MODELS_DIR .$class_name .'.php';
+            include CURRENT_MODELS_DIR . $class_name .'.php';
         }
 
     }
@@ -138,9 +140,10 @@ class Frame
     private static function initDispatch()
     {
         // 先确定控制器类的名字
-        $controller_name = CONTROLLER . '.Controller';
+        $controller_name = CONTROLLER . 'Controller';
         // 实例化控制器类
         $controller = new $controller_name;
+
         // 先拼凑出当前方法的名字
         $action_name = ACTION;
         // 调用方法

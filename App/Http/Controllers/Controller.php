@@ -7,7 +7,8 @@
  * Time: 10:30
  * desc: 存放控制器一些公共的方法
  */
-class BaseController extends Controller{
+namespace App\Http\Controller;
+class Controller extends \Frame\Controller {
 
     public function __construct()
     {

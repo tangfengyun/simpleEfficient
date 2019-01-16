@@ -6,6 +6,7 @@
  * Date: 2019/1/16
  * Time: 15:07
  */
+namespace Frame;
 class Page{
     private $rowsPerPage; //每页显示条数
     private $maxNum; //页面显示最大页码数

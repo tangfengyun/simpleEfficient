@@ -13,7 +13,7 @@ return array(
         'dao'	=>	'pdo',// 这里可以是pdo或mysql
     ),
     'Home' => array(
-        'default_controller' => 'Index',
+        'default_controller' => 'Test',//Index
         'default_action' => 'index',
     ),
     'Back' => array(

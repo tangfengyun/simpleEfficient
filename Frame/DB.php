@@ -6,6 +6,7 @@
  * Date: 2019/1/16
  * Time: 9:40
  */
+namespace Frame;
 class DB {
     //生成模型类的单例对象
     public static function table($class_name)

@@ -5,6 +5,8 @@
  * Date: 2019/1/16
  * Time: 11:20
  */
+namespace Frame\Dao;
+use PDO;
 class PDODB implements I_DAO{
     /**
      * 定义相关的属性
@@ -70,7 +72,7 @@ class PDODB implements I_DAO{
         // 在实例化PDO对象的时候自动走异常模式(也是唯一走异常模式的地方)
         try{
             $this->pdo = new PDO($this->dsn,$this->user,$this->pass);
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
             echo "数据库连接失败！<br />";
             echo '错误的信息为：',$e->getMessage(),'<br />';
             echo '错误的代码为：',$e->getCode(),'<br />';
@@ -113,7 +115,7 @@ class PDODB implements I_DAO{
     {
         try{
             $result = $this->pdo->exec($sql);
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -131,7 +133,7 @@ class PDODB implements I_DAO{
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -149,7 +151,7 @@ class PDODB implements I_DAO{
             $result = $stmt->fetchColumn();
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -167,7 +169,7 @@ class PDODB implements I_DAO{
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        } catch (PDOException $e){
+        } catch (\PDOException $e){
             $this->my_error($e);
         }
         return $result ;
