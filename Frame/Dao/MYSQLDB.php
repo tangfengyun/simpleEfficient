@@ -58,8 +58,8 @@ class MYSQLDB implements I_DAO{
             $this->link = $link;
         }else{
             echo "数据库连接失败！<br />";
-            echo '错误编号：',mysql_errno(),'<br />';
-            echo '错误信息：',mysql_error(),'<br />';
+            echo '错误的编号为：',mysql_errno(),'<br />';
+            echo '错误的信息为：',mysql_error(),'<br />';
             return false;
         }
     }
@@ -90,7 +90,7 @@ class MYSQLDB implements I_DAO{
      */
     public static function getInstance($config)
     {
-        if(!self::$instance instanceof self){
+        if(! self::$instance instanceof self){
             self::$instance = new self($config);
         }
         return self::$instance;
@@ -115,7 +115,7 @@ class MYSQLDB implements I_DAO{
 
     /**
      * 返回一行多列的查询结果
-     * @param $sql
+     * @param string $sql 一条sql语句
      * @return array|bool
      */
     public function fetchRow($sql)
@@ -123,7 +123,8 @@ class MYSQLDB implements I_DAO{
         // 先执行sql语句
         if($result = $this->my_query($sql)){
             // 执行成功
-            $row = mysql_fetch_row($result);
+            $row = mysql_fetch_assoc($result);
+            // 释放结果集资源
             mysql_free_result($result);
             // 返回这一条记录的数据
             return $row;
@@ -132,13 +133,50 @@ class MYSQLDB implements I_DAO{
         }
 
     }
+
+    /**
+     * 返回单行单列的查询结果(单一值)
+     * @param string $sql 一条sql语句
+     * @return mixed string|false
+     */
     public function fetchColumn($sql)
     {
-        // TODO: Implement fetchColumn() method.
+        if($result = $this->my_query($sql)){
+            //执行成功
+            $coulumn = mysql_fetch_row($result);
+            // 释放结果集资源
+            mysql_free_result($result);
+            // 返回这个单一值
+            return isset($coulumn[0]) ? $coulumn[0] : false;
+        }else{
+            // 执行失败
+            return false;
+        }
+
     }
+
+
+    /**
+     * 返回多行多列的查询结果
+     * @param string $sql 一条sql语句
+     * @return array|bool
+     */
     public function fetchAll($sql)
     {
-        // TODO: Implement fetchAll() method.
+        if($result = $this->my_query($sql)){
+            //执行成功
+            // 遍历资源结果集
+            $rows = array();
+            while ($row =mysql_fetch_assoc($result)){
+                $rows[] = $row;
+            }
+            //释放结果集资源
+            mysql_free_result($result);
+            //返回多行多列的查询结果
+            return $rows;
+        }else{
+            return false;
+        }
     }
 
     /**
