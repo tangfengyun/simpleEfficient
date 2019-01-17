@@ -7,5 +7,6 @@
  * Time: 17:18
  * Desc:引入项目初始化框架类
  */
-include  __DIR__ .'/../Frame/Frame.php';
-Frame\Frame::run();
+require __DIR__ .'/../Frame/Frame.php';
+
+Frame::run();

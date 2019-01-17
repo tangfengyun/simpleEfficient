@@ -5,8 +5,6 @@
  * Date: 2019/1/16
  * Time: 11:20
  */
-namespace Frame\Dao;
-use PDO;
 class PDODB implements I_DAO{
     /**
      * 定义相关的属性
@@ -88,7 +86,7 @@ class PDODB implements I_DAO{
     private function initAttribute()
     {
         // 把错误模式修改为异常模式
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
     }
 
     /**
@@ -130,7 +128,7 @@ class PDODB implements I_DAO{
     {
         try{
             $stmt  = $this->pdo->query($sql);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
         }catch (\PDOException $e){
@@ -166,7 +164,7 @@ class PDODB implements I_DAO{
     {
         try{
             $stmt = $this->pdo->query($sql);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
         } catch (\PDOException $e){

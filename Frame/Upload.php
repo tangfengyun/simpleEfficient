@@ -5,7 +5,6 @@
  * Date: 2019/1/16
  * Time: 15:49
  */
-namespace Frame;
 class Upload{
     // 定义公开静态属性,用于记录错误信息
     public static $error;

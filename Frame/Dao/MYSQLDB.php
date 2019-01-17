@@ -6,7 +6,6 @@
  * Date: 2019/1/16
  * Time: 11:19
  */
-namespace Frame\Dao;
 class MYSQLDB implements I_DAO{
     /**
      * 定义相关的属性

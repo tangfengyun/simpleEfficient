@@ -6,8 +6,7 @@
  * Date: 2019/1/15
  * Time: 17:24
  */
-namespace Frame;
-class Frame 
+class Frame
 {
     /**
      * 项目入口方法
@@ -32,7 +31,6 @@ class Frame
      */
     private static function initConst()
     {
-
         define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
         define('APP_DIR',ROOT_DIR.'App/'); //应用程序目录
         define('CONFIG_DIR',ROOT_DIR.'Config/');//置文件目录
@@ -111,6 +109,7 @@ class Frame
             'Smarty'        =>  SMARTY_DIR . 'Smarty.class.php',
             'Captcha'       =>  VENDOR_DIR . 'Captcha.php',
         );
+
         // 判断是否为核心类
         if(isset($frame_class_name[$class_name])){
             include  $frame_class_name[$class_name];
@@ -143,7 +142,6 @@ class Frame
         $controller_name = CONTROLLER . 'Controller';
         // 实例化控制器类
         $controller = new $controller_name;
-
         // 先拼凑出当前方法的名字
         $action_name = ACTION;
         // 调用方法

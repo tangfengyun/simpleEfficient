@@ -961,7 +961,7 @@ class Smarty_Internal_Configfileparser
                 $this->yy_reduce($yyact - self::YYNSTATE);
             } elseif ($yyact == self::YY_ERROR_ACTION) {
                 if ($this->yyTraceFILE) {
-                    fprintf($this->yyTraceFILE, "%sSyntax Error!\n", $this->yyTracePrompt);
+                    fprintf($this->yyTraceFILE, "%sSyntax ErrorTemplate!\n", $this->yyTracePrompt);
                 }
                 if (self::YYERRORSYMBOL) {
                     if ($this->yyerrcnt < 0) {

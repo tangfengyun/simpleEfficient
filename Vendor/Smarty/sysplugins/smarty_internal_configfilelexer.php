@@ -225,7 +225,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state START');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state START');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number
@@ -327,7 +327,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state VALUE');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state VALUE');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number
@@ -449,7 +449,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state NAKED_STRING_VALUE');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state NAKED_STRING_VALUE');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number
@@ -507,7 +507,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state COMMENT');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state COMMENT');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number
@@ -577,7 +577,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state SECTION');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state SECTION');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number
@@ -641,7 +641,7 @@ class Smarty_Internal_Configfilelexer
                     $yymatches = array_filter($yymatches, 'strlen');
                 }
                 if (empty($yymatches)) {
-                    throw new Exception('Error: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state TRIPPLE');
+                    throw new Exception('ErrorTemplate: lexing failed because a rule matched' . ' an empty string.  Input "' . substr($this->data, $this->counter, 5) . '... state TRIPPLE');
                 }
                 next($yymatches); // skip global match
                 $this->token = key($yymatches); // token number

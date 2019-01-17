@@ -6,7 +6,6 @@
  * Date: 2019/1/16
  * Time: 11:04
  */
-namespace Frame;
 class Model{
 
     // 定义用来存储dao对象的属性,要求可以在子类中被访问

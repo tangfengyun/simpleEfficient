@@ -3,12 +3,11 @@
  * 基础控制器
  * Created by PhpStorm.
  * User: FengYun
- * Date: 2019/1/16
- * Time: 10:30
+ * Date: 2019/1/17
+ * Time: 10:45
  * desc: 存放控制器一些公共的方法
  */
-namespace App\Http\Controller;
-class Controller extends \Frame\Controller {
+class BaseController extends Controller {
 
     public function __construct()
     {
@@ -23,4 +22,5 @@ class Controller extends \Frame\Controller {
     {
         @session_start();
     }
+
 }
