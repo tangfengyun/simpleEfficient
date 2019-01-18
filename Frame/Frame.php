@@ -85,9 +85,10 @@ class Frame
         define('CURRENT_RESOURCE_DIR',ROOT_DIR.'Resources/Views/');
 
         // 以下的三个目录常量绝对路径
-        define('CSS_DIR', '/Resources/Css');
-        define('JS_DIR', '/Resources/Js');
-        define('IMAGES_DIR', '/Uploads/Images');
+        define('CSS_DIR', '/Resources/' . PLATFORM . '/css');
+        define('JS_DIR', '/Resources/' . PLATFORM . '/js');
+        define('IMAGES_DIR', '/Resources/' . PLATFORM . '/images');
+        define('UPLOAD_DIR', '/Uploads/Images');
     }
 
     /**
@@ -100,9 +101,9 @@ class Frame
             //'类名' => '类文件地址'
             'Controller'    =>  FRAME_DIR . 'Controller.php',
             'Model'         =>  FRAME_DIR . 'Model.php',
-            'Factory'       =>  FRAME_DIR . 'Factory.php',
             'Upload'        =>  FRAME_DIR . 'Upload.php',
             'Page'          =>  FRAME_DIR . 'Page.php',
+            'DB'            =>  FRAME_DIR . 'DB.php',
             'MYSQL'         =>  DAO_DIR . 'MYSQLDB.php',
             'PDODB'         =>  DAO_DIR . 'PDODB.php',
             'I_DAO'         =>  DAO_DIR . 'I_DAO.php',

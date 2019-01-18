@@ -23,11 +23,11 @@ class Captcha{
 	 */
 	private function initParams(){
 		//在配置文件conf.php中查找
-		$this->width = $GLOBALS['conf']['Captcha']['width']; 
-		$this->height = $GLOBALS['conf']['Captcha']['height'];
-		$this->pixelnum = $GLOBALS['conf']['Captcha']['pixelnum'];
-		$this->linenum = $GLOBALS['conf']['Captcha']['linenum'];
-		$this->stringnum = $GLOBALS['conf']['Captcha']['stringnum'];
+		$this->width = $GLOBALS['config']['Captcha']['width'];
+		$this->height = $GLOBALS['config']['Captcha']['height'];
+		$this->pixelnum = $GLOBALS['config']['Captcha']['pixelnum'];
+		$this->linenum = $GLOBALS['config']['Captcha']['linenum'];
+		$this->stringnum = $GLOBALS['config']['Captcha']['stringnum'];
 	}
 	/**
 	 * 生成图片

@@ -13,7 +13,7 @@
  * Date:     Feb 24, 2003<br>
  * Purpose:  format HTML tags for the image<br>
  * Examples: {html_image file="/images/masthead.gif"}<br>
- * Output:   <img src="/images/masthead.gif" width=400 height=23><br>
+ * Output:   <images src="/images/masthead.gif" width=400 height=23><br>
  * Params:
  * <pre>
  * - file        - (required) - file (and path) of image
@@ -159,5 +159,5 @@ function smarty_function_html_image($params, $template)
         $height = round($height * $_resize);
     }
 
-    return $prefix . '<img src="' . $path_prefix . $file . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"' . $extra . ' />' . $suffix;
+    return $prefix . '<images src="' . $path_prefix . $file . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"' . $extra . ' />' . $suffix;
 }

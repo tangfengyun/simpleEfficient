@@ -54,6 +54,8 @@ class Controller {
         // 调用smarty数据填充
         if(isset($data)){
             foreach ($data as $name=> $value){
+                //对用户递交数据进行安全过滤
+                //$value = $this->escapeData($value);
                 // 调用smarty对象的assign方法
                 $this->smarty->assign($name,$value);
             }
