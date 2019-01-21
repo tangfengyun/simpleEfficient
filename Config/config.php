@@ -1,5 +1,14 @@
 <?php
+
 return array(
+//	'db'	=>	array( // 数据库信息组(service)
+//		'host'	=>	'bdm263683440.my3w.com',
+//		'port'	=>	'3306',
+//		'user'	=>	'bdm263683440',
+//		'pass'	=>	'FengYun15211026204',
+//		'charset'=>	'utf8',
+//		'dbname' => 'bdm263683440_db'
+//	),
     'db'	=>	array( // 数据库信息组(local)
         'host'	=>	'localhost',
         'port'	=>	'3306',
@@ -8,17 +17,18 @@ return array(
         'charset'=>	'utf8',
         'dbname' => 'blog'
     ),
-    'App' => array(
-        'default_platform' => 'Home',
-        'dao'	=>	'pdo',// 这里可以是pdo或mysql
+    'App'	=>	array( // 应用程序组
+        'default_platform'=>'Back',
+        'dao'	=>	'mysql',// 这里可以是pdo或mysql
     ),
-    'Home' => array(
-        'default_controller' => 'Test',//Index
-        'default_action' => 'index',
+    'Home'	=>	array( // 前台组
+        'default_controller'=>'Index',
+        //'default_controller'=>'default',
+        'default_action'	=>'index'
     ),
-    'Back' => array(
-        'default_controller' => 'Admin',
-        'default_action' => 'login',
+    'Back'	=>	array(	// 后台组
+        'default_controller'=>'Admin',
+        'default_action'	=>'login'
     ),
     'Captcha' => array(//验证码信息组
         'width'     => 80, //宽
@@ -32,3 +42,4 @@ return array(
         'maxNum' => 5  //页面上能够显示最多有多少页面
     ),
 );
+

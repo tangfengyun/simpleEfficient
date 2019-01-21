@@ -35,6 +35,18 @@ class MYSQLDB implements I_DAO{
         // 选择默认数据库
         $this->my_dbname();
     }
+    /**
+     * 获得单例对象的公开的静态方法
+     * @param array $config 需要传递给构造方法的参数
+     * @return MYSQLDB
+     */
+    public static function getInstance($config)
+    {
+        if(! self::$instance instanceof self){
+            self::$instance = new self($config);
+        }
+        return self::$instance;
+    }
 
     /**
      * 初始化属性的值
@@ -54,12 +66,12 @@ class MYSQLDB implements I_DAO{
      */
     private function my_connect()
     {
-        if($link = @mysql_connect("$this->host:$this->port",$this->user,$this->pass)){
+        if($link = @mysqli_connect("$this->host:$this->port",$this->user,$this->pass,$this->dbname)){
             $this->link = $link;
         }else{
             echo "数据库连接失败！<br />";
-            echo '错误的编号为：',mysql_errno(),'<br />';
-            echo '错误的信息为：',mysql_error(),'<br />';
+            echo '错误的编号为：',mysqli_errno($link),'<br />';
+            echo '错误的信息为：',mysqli_error($link),'<br />';
             return false;
         }
     }
@@ -84,30 +96,17 @@ class MYSQLDB implements I_DAO{
     }
 
     /**
-     * 获得单例对象的公开的静态方法
-     * @param array $config 需要传递给构造方法的参数
-     * @return MYSQLDB
-     */
-    public static function getInstance($config)
-    {
-        if(! self::$instance instanceof self){
-            self::$instance = new self($config);
-        }
-        return self::$instance;
-    }
-
-    /**
      * 错误调试方法,执行一条sql语句
      * @param $sql
-     * @return bool|resource
+     * @return bool|mysqli_result
      */
     public function my_query($sql)
     {
-        $result = mysql_query($sql);
+        $result = mysqli_query($this->link,$sql);
         if(!$result){
             echo "SQL语句执行失败！<br />";
-            echo '错误编号：',mysql_errno(),'<br />';
-            echo '错误信息：',mysql_error(),'<br />';
+            echo '错误编号：',mysqli_errno($this->link),'<br />';
+            echo '错误信息：',mysqli_error($this->link),'<br />';
             return false;
         }
         return $result;
@@ -123,9 +122,9 @@ class MYSQLDB implements I_DAO{
         // 先执行sql语句
         if($result = $this->my_query($sql)){
             // 执行成功
-            $row = mysql_fetch_assoc($result);
+            $row = mysqli_fetch_assoc($result);
             // 释放结果集资源
-            mysql_free_result($result);
+            mysqli_free_result($result);
             // 返回这一条记录的数据
             return $row;
         }else{
@@ -143,11 +142,11 @@ class MYSQLDB implements I_DAO{
     {
         if($result = $this->my_query($sql)){
             //执行成功
-            $coulumn = mysql_fetch_row($result);
+            $column = mysqli_fetch_row($result);
             // 释放结果集资源
-            mysql_free_result($result);
+            mysqli_free_result($result);
             // 返回这个单一值
-            return isset($coulumn[0]) ? $coulumn[0] : false;
+            return isset($column[0]) ? $column[0] : false;
         }else{
             // 执行失败
             return false;
@@ -167,11 +166,11 @@ class MYSQLDB implements I_DAO{
             //执行成功
             // 遍历资源结果集
             $rows = array();
-            while ($row =mysql_fetch_assoc($result)){
+            while ($row =mysqli_fetch_assoc($result)){
                 $rows[] = $row;
             }
             //释放结果集资源
-            mysql_free_result($result);
+            mysqli_free_result($result);
             //返回多行多列的查询结果
             return $rows;
         }else{
@@ -185,7 +184,7 @@ class MYSQLDB implements I_DAO{
     public function __destruct()
     {
         // 释放额外的数据库连接资源
-        mysql_close($this->link);
+        mysqli_close($this->link);
     }
 
     /**

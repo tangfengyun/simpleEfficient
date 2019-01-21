@@ -32,6 +32,7 @@ class Frame
     private static function initConst()
     {
         define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
+        define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']) . '/');  //应用目录
         define('APP_DIR',ROOT_DIR.'App/'); //应用程序目录
         define('CONFIG_DIR',ROOT_DIR.'Config/');//置文件目录
         define('FRAME_DIR',ROOT_DIR.'Frame/'); //框架目录
@@ -43,6 +44,7 @@ class Frame
         define('VENDOR_DIR',ROOT_DIR.'Vendor/');//第三方插件目录
         define('DAO_DIR',FRAME_DIR.'Dao/');//dao层目录(数据库)
         define('SMARTY_DIR',VENDOR_DIR.'Smarty/');//smarty目录
+        define('TWIG_DIR',VENDOR_DIR.'twig/');//twig目录
 
     }
 
@@ -85,9 +87,9 @@ class Frame
         define('CURRENT_RESOURCE_DIR',ROOT_DIR.'Resources/Views/');
 
         // 以下的三个目录常量绝对路径
-        define('CSS_DIR', '/Resources/' . PLATFORM . '/css');
-        define('JS_DIR', '/Resources/' . PLATFORM . '/js');
-        define('IMAGES_DIR', '/Resources/' . PLATFORM . '/images');
+        define('CSS_DIR',  '/Resources/Public/' . PLATFORM . '/css');
+        define('JS_DIR', '/Resources/Public/' . PLATFORM . '/js');
+        define('IMAGES_DIR', '/Resources/Public/' . PLATFORM . '/images');
         define('UPLOAD_DIR', '/Uploads/Images');
     }
 
@@ -104,10 +106,11 @@ class Frame
             'Upload'        =>  FRAME_DIR . 'Upload.php',
             'Page'          =>  FRAME_DIR . 'Page.php',
             'DB'            =>  FRAME_DIR . 'DB.php',
-            'MYSQL'         =>  DAO_DIR . 'MYSQLDB.php',
+            'MYSQLDB'       =>  DAO_DIR . 'MYSQLDB.php',
             'PDODB'         =>  DAO_DIR . 'PDODB.php',
             'I_DAO'         =>  DAO_DIR . 'I_DAO.php',
             'Smarty'        =>  SMARTY_DIR . 'Smarty.class.php',
+//            'Twig'          =>  VENDOR_DIR . 'autoload.php',
             'Captcha'       =>  VENDOR_DIR . 'Captcha.php',
         );
 

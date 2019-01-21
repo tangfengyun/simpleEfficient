@@ -37,6 +37,7 @@ class PDODB implements I_DAO{
         if(! self::$instance instanceof self){
             self::$instance = new self($config);
         }
+        var_dump(self::$instance);
         return self::$instance;
     }
 
@@ -59,7 +60,7 @@ class PDODB implements I_DAO{
      */
     private function initDSN()
     {
-        $this->dsn = "msyql:host=$this->host;port=$this->port;dbname=$this->dbname;charset=$this->charset";
+        $this->dsn = "mysql:host=$this->host;port=$this->port;dbname=$this->dbname;charset=$this->charset";
     }
 
     /**
@@ -69,8 +70,8 @@ class PDODB implements I_DAO{
     {
         // 在实例化PDO对象的时候自动走异常模式(也是唯一走异常模式的地方)
         try{
-            $this->pdo = new PDO($this->dsn,$this->user,$this->pass);
-        }catch (\PDOException $e){
+            $this->pdo = new PDO($this->dsn, $this->user, $this->pass);
+        }catch (PDOException $e){
             echo "数据库连接失败！<br />";
             echo '错误的信息为：',$e->getMessage(),'<br />';
             echo '错误的代码为：',$e->getCode(),'<br />';
@@ -86,7 +87,7 @@ class PDODB implements I_DAO{
     private function initAttribute()
     {
         // 把错误模式修改为异常模式
-        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 
     /**
@@ -96,7 +97,7 @@ class PDODB implements I_DAO{
      */
     private function my_error($e)
     {
-        echo "数据库连接失败！<br />";
+        echo "SQL语句执行失败！<br />";
         echo '错误的信息为：',$e->getMessage(),'<br />';
         echo '错误的代码为：',$e->getCode(),'<br />';
         echo '错误的脚本为：',$e->getFile(),'<br />';
@@ -113,7 +114,7 @@ class PDODB implements I_DAO{
     {
         try{
             $result = $this->pdo->exec($sql);
-        }catch (\PDOException $e){
+        }catch (PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -128,10 +129,11 @@ class PDODB implements I_DAO{
     {
         try{
             $stmt  = $this->pdo->query($sql);
-            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            var_dump($stmt);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        }catch (\PDOException $e){
+        }catch (PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -149,7 +151,7 @@ class PDODB implements I_DAO{
             $result = $stmt->fetchColumn();
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        }catch (\PDOException $e){
+        }catch (PDOException $e){
             $this->my_error($e);
         }
         return $result;
@@ -164,10 +166,10 @@ class PDODB implements I_DAO{
     {
         try{
             $stmt = $this->pdo->query($sql);
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             // 释放资源(关闭光标)
             $stmt->closeCursor();
-        } catch (\PDOException $e){
+        } catch (PDOException $e){
             $this->my_error($e);
         }
         return $result ;

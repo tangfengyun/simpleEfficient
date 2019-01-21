@@ -32,12 +32,13 @@ class AdminController extends BaseController{
             $this->jump('index.php?p=Back&c=Admin&a=login',':(验证码错误！');
         }
 
+
         $admin = DB::table('adminModel');
         if($row = $admin->check($admin_name,$admin_pass)){
             @session_start();
             $_SESSION['adminInfo'] = $row;
             $admin->updateAdminInfo($row['admin_id']);
-            $this->jump('index.php?p=Back&c=Admin&a=index');
+            $this->jump('index.php?p=Back&c=Manage&a=index');
         }else{
             $this->jump('index.php?p=Back&c=admin&a=login');
         }
@@ -67,5 +68,9 @@ class AdminController extends BaseController{
         session_destroy();
         //立即跳转至登录界面
         $this->jump('index.php?p=Back&c=Admin&a=login');
+    }
+
+    public function index(){
+        var_dump(2223223);
     }
 }

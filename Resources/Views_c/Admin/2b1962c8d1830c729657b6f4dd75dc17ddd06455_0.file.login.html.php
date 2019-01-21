@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2019-01-18 09:25:45
+/* Smarty version 3.1.29, created on 2019-01-21 06:32:19
   from "C:\laragon\www\simpleEfficient\Resources\Views\Admin\login.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5c419b99b9d6a3_18208354',
+  'unifunc' => 'content_5c456773cfb6c6_39863747',
   'file_dependency' => 
   array (
     '2b1962c8d1830c729657b6f4dd75dc17ddd06455' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5c419b99b9d6a3_18208354 ($_smarty_tpl) {
+function content_5c456773cfb6c6_39863747 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">

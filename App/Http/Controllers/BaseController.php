@@ -11,15 +11,6 @@ class BaseController extends Controller {
 
     public function __construct()
     {
-        parent::__construct();
-        $this->initSession();
-    }
-
-    /**
-     * 开启session
-     */
-    protected function initSession()
-    {
         //先显式的调用父类方法
         parent::__construct();
         //再进行判断

@@ -6,10 +6,13 @@
  * Date: 2019/1/16
  * Time: 9:44
  */
+include_once '../vendor/autoload.php';
 class Controller {
 
     // 定义一个属性,用于保存Smarty对象
     protected  $smarty;
+    // 定义一个属性,用于保存Smarty对象
+    protected  $twig;
 
     /**
      *构造方法
@@ -20,6 +23,8 @@ class Controller {
         $this->initCode();
         //初始化smarty模板
         $this->initSmarty();
+        //初始化twig
+        $this->initTwig();
     }
 
     /**
@@ -45,6 +50,23 @@ class Controller {
     }
 
     /**
+     * 初始化twig
+     */
+    function initTwig()
+    {
+        // 实例化Twig 适用于1.0版
+        //\Twig_Autoloader::register();
+        // 设置模板路径
+        $loader = new Twig_Loader_Filesystem(CURRENT_RESOURCE_DIR . CONTROLLER . '/');
+        // 设置编译文件路径
+        $this->twig = new Twig_Environment($loader, array(
+            'View_c' => ROOT_DIR .'Resources/Views_c/' . CONTROLLER . '/',
+        ));
+
+
+    }
+
+    /**
      * smarty视图模板数据输出
      * @param $view_name [eg:admin]
      * @param $data
@@ -66,12 +88,22 @@ class Controller {
     }
 
     /**
+     * twig视图模板数据输出
+     * @param string $view_name
+     * @param array $data
+     */
+    protected function show( $view_name='' ,$data = array())
+    {
+         $name = $view_name . '.html';
+         echo $this->twig->render($name,$data);
+    }
+
+    /**
      * 增加一个跳转方法
      *@param string $url 跳转的地址
      *@param string $info 跳转错误的提示信息
      *@param time  $time 等待的时间，跳转的时间（单位秒）
      */
-
     protected function jump($url,$info=null,$time=3)
     {
         if(is_null($info)){
