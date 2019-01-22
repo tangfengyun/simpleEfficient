@@ -32,7 +32,7 @@ class Frame
     private static function initConst()
     {
 
-//        define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
+        //define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
         define('ROOT_DIR', str_replace('\\', '/', getcwd()) . '/'); // 根目录
         define('APP_DIR',ROOT_DIR.'App/'); //应用程序目录
         define('CONFIG_DIR',ROOT_DIR.'Config/');//置文件目录
@@ -102,6 +102,7 @@ class Frame
         $frame_class_name = array(
             //'类名' => '类文件地址'
             'autoload'      =>  VENDOR_DIR . 'autoload.php',
+            'Route'         =>  FRAME_DIR . 'Route.php',
             'Controller'    =>  FRAME_DIR . 'Controller.php',
             'Model'         =>  FRAME_DIR . 'Model.php',
             'Upload'        =>  FRAME_DIR . 'Upload.php',

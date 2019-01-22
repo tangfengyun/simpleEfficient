@@ -26,7 +26,7 @@ class AdminController extends BaseController{
         $admin_pass = $_POST['admin_pass'];
         $passcode = trim($_POST['passcode']);
 
-        //验证是否合法
+        //验证是
         $captcha = DB::table('Captcha');
         if(! $captcha->checkCaptcha($passcode)){
             $this->jump('index.php?p=Back&c=Admin&a=login',':(验证码错误！');
@@ -70,7 +70,4 @@ class AdminController extends BaseController{
         $this->jump('index.php?p=Back&c=Admin&a=login');
     }
 
-    public function index(){
-        var_dump(2223223);
-    }
 }

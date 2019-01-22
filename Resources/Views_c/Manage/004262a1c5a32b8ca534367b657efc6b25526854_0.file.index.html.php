@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2019-01-22 01:53:22
+/* Smarty version 3.1.29, created on 2019-01-22 09:34:09
   from "C:\laragon\www\simpleEfficient\Resources\Views\Manage\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5c4677921214e2_83918778',
+  'unifunc' => 'content_5c46e391b56204_47608625',
   'file_dependency' => 
   array (
     '004262a1c5a32b8ca534367b657efc6b25526854' => 
     array (
       0 => 'C:\\laragon\\www\\simpleEfficient\\Resources\\Views\\Manage\\index.html',
-      1 => 1548121959,
+      1 => 1548148903,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:../Public/public.html' => 1,
   ),
 ),false)) {
-function content_5c4677921214e2_83918778 ($_smarty_tpl) {
+function content_5c46e391b56204_47608625 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:/laragon/www/simpleEfficient/Vendor/Smarty/plugins\\modifier.date_format.php';
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:../Public/public.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -71,7 +71,7 @@ $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:../Public/pu
                     <tr><td align="right">Web服务器：</td><td><?php echo $_SERVER['SERVER_SOFTWARE'];?>
 </td><td align="right">主页：</td><td><a href="#" target="_blank">#</a></td></tr>
                     <tr><td align="right">服务器IP：</td><td><?php echo $_SERVER['SERVER_ADDR'];?>
-</td><td align="right">演示：</td><td><a href="#" target="_blank">http://www.blog.com</a></td></tr>
+</td><td align="right">演示：</td><td><a href="#" target="_blank">http://www.51about.com</a></td></tr>
                     <tr><td align="right">数据库：</td><td>MySQL</td><td align="right">群交流：</td><td><a href="#" target="_blank">12345678</a> (点击加入)</td></tr>
                 </table>
             </div>
