@@ -32,6 +32,7 @@ class Frame
     private static function initConst()
     {
         define('ROOT_DIR', str_replace('Frame/Frame.php','',str_replace('\\', '/', __FILE__))); //根目录
+        define('ROOT_DIR', str_replace('\\', '/', getcwd()) . '/'); // 根目录
         define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']) . '/');  //应用目录
         define('APP_DIR',ROOT_DIR.'App/'); //应用程序目录
         define('CONFIG_DIR',ROOT_DIR.'Config/');//置文件目录
