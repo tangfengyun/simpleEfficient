@@ -6,6 +6,5 @@
  * Time: 10:49
  */
 
-require './Frame/Frame.php';
-
+require __DIR__.'./Frame/Frame.php';
 Frame::run();

@@ -6,7 +6,8 @@
  * Date: 2019/1/16
  * Time: 9:44
  */
-include_once '../vendor/autoload.php';
+
+include_once __DIR__ .'/../Vendor/autoload.php';
 class Controller {
 
     // 定义一个属性,用于保存Smarty对象
