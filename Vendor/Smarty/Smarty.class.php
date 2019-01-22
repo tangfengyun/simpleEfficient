@@ -1459,7 +1459,7 @@ class Smarty extends Smarty_Internal_TemplateBase
             Smarty deliberately uses @filemtime() over file_exists() and filemtime() in some places. Reasons include
                 - @filemtime() is almost twice as fast as using an additional file_exists()
                 - between file_exists() and filemtime() a possible race condition is opened,
-                  which does not exist using the simple @filemtime() approach.
+                  which does not exist using the indexSimple @filemtime() approach.
         */
         $error_handler = array('Smarty', 'mutingErrorHandler');
         $previous = set_error_handler($error_handler);

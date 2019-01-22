@@ -37,7 +37,7 @@ class Twig_Node_Expression_Test_Defined extends Twig_Node_Expression_Test
         } elseif ($node instanceof Twig_Node_Expression_Constant || $node instanceof Twig_Node_Expression_Array) {
             $node = new Twig_Node_Expression_Constant(true, $node->getTemplateLine());
         } else {
-            throw new Twig_Error_Syntax('The "defined" test only works with simple variables.', $this->getTemplateLine());
+            throw new Twig_Error_Syntax('The "defined" test only works with indexSimple variables.', $this->getTemplateLine());
         }
 
         parent::__construct($node, $name, $arguments, $lineno);

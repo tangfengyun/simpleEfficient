@@ -8,7 +8,7 @@
 
 /**
  * Smarty Cache Handler Base for Key/Value Storage Implementations
- * This class implements the functionality required to use simple key/value stores
+ * This class implements the functionality required to use indexSimple key/value stores
  * for hierarchical cache groups. key/value stores like memcache or APC do not support
  * wildcards in keys, therefore a cache group cannot be cleared like "a|*" - which
  * is no problem to filesystem and RDBMS implementations.

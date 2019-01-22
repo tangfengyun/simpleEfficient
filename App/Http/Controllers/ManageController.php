@@ -8,7 +8,7 @@
 
 class ManageController extends BaseController {
     public function index(){
-        $this->show('index');
+        $this->view('index');
 //        $this->view('index');
 
     }

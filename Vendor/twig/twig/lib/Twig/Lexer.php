@@ -127,7 +127,7 @@ class Twig_Lexer
 
     private function lexData()
     {
-        // if no matches are left we return the rest of the template as simple text token
+        // if no matches are left we return the rest of the template as indexSimple text token
         if ($this->position == count($this->positions[0]) - 1) {
             $this->pushToken(/* Twig_Token::TEXT_TYPE */ 0, substr($this->code, $this->cursor));
             $this->cursor = $this->end;

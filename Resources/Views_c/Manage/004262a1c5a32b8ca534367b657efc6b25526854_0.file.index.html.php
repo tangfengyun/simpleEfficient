@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2019-01-21 06:57:47
+/* Smarty version 3.1.29, created on 2019-01-22 01:53:22
   from "C:\laragon\www\simpleEfficient\Resources\Views\Manage\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5c456d6b942748_51453130',
+  'unifunc' => 'content_5c4677921214e2_83918778',
   'file_dependency' => 
   array (
     '004262a1c5a32b8ca534367b657efc6b25526854' => 
     array (
       0 => 'C:\\laragon\\www\\simpleEfficient\\Resources\\Views\\Manage\\index.html',
-      1 => 1548053865,
+      1 => 1548121959,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:../Public/public.html' => 1,
   ),
 ),false)) {
-function content_5c456d6b942748_51453130 ($_smarty_tpl) {
+function content_5c4677921214e2_83918778 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:/laragon/www/simpleEfficient/Vendor/Smarty/plugins\\modifier.date_format.php';
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:../Public/public.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
